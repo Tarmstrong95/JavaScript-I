@@ -18,39 +18,22 @@ const example = {
 }
 
 // Write your intern objects here:
-const interns = [
-  intern1 = {
-    "id": 1,
-    "name": "Mitzi",
-    "email": "mmelloy0@psu.edu",
-    "gender": "F"
-  },
-  intern2 = {
-    "id": 2,
-    "name": "Kennan",
-    "email": "kdiben1@tinypic.com",
-    "gender": "M"
-  },
-  intern3 = {
-    "id": 3,
-    "name": "Keven",
-    "email": "kmummery2@wikimedia.org",
-    "gender": "M"
-  },
-  intern4 = {
-    "id": 4,
-    "name": "Gannie",
-    "email": "gmartinson3@illinois.edu",
-    "gender": "M"
-  },
-  intern5 = {
-    "id": 5,
-    "name": "Antonietta",
-    "email": "adaine5@samsung.com",
-    "gender": "F"
+const interns = [];
+class Intern {
+  constructor(i, n, e, g) {
+    this.id = i;
+    this.name = n;
+    this.email = e;
+    this.gender = g;
   }
-];
+}
 
+const intern1 = new Intern(1, 'Mitzi','mmelloy0@psu.edu', 'F' );
+const intern2 = new Intern(2, 'Kennan','kdiben1@tinypic.com', 'M' );
+const intern3 = new Intern(3, 'Keven','kmummery2@wikimedia.org', 'M' );
+const intern4 = new Intern(4, 'Gannie','gmartinson3@illinois.edu', 'M' );
+const intern5 = new Intern(5, 'Antonietta','adaine5@samsung.com', 'F' );
+interns.push(intern1, intern2, intern3, intern4, intern5);
 // ==== Challenge 2: Reading Object Data ==== 
 // Once your objects are created, log out the following requests from HR into the console:
 
@@ -74,23 +57,20 @@ console.log(interns[1].speak())
 interns[4].multiplyNums = function(a, b){return a*b}
 console.log(interns[4].multiplyNums(5, 6))
 // === Great work! === Head over to the the arrays.js file or take a look at the stretch challenge
-
 // ==== Stretch Challenge: Nested Objects and the this keyword ==== 
-
 // 1. Create a parent object with properties for name and age.  Make the name Susan and the age 70.
-
-
-
 //creates person object
-function Person(name, age){
-  this.name = name;
-  this.age = age;
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  //initialises function prototype
+  speak() {
+    return `Hey my name is ${this.name}`;
+  }
 }
 
-//initialises function prototype
-Person.prototype.speak = function(){
-  return `Hey my name is ${this.name}`;
-}
 
 //creates the people
 const parent = new Person("susan", 70);
